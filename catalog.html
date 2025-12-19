@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - SANDHANG COMAL</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg sticky-top border-bottom bg-white">
+        <div class="container-fluid">
+            <a class="navbar-brand font-serif ls-2" href="index.html">SANDHANG COMAL.</a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="catalog.html">Shop All</a></li>
+                    <li class="nav-item"><a class="nav-link" href="catalog.html?cat=couple">Couple Lab</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid py-5">
+        <div class="row">
+            <div class="col-md-3 col-lg-2 filter-sidebar">
+                <h4 class="font-serif mb-4">Filters</h4>
+                <div class="filter-group">
+                    <span class="filter-title">Category</span>
+                    <div class="form-check"><input class="form-check-input filter-check" type="checkbox" value="man" id="catMan"><label class="form-check-label" for="catMan">Man</label></div>
+                    <div class="form-check"><input class="form-check-input filter-check" type="checkbox" value="woman" id="catWoman"><label class="form-check-label" for="catWoman">Woman</label></div>
+                    <div class="form-check"><input class="form-check-input filter-check" type="checkbox" value="couple" id="catCouple"><label class="form-check-label" for="catCouple">Couple Sets</label></div>
+                </div>
+                <div class="filter-group">
+                    <span class="filter-title">Type</span>
+                    <div class="form-check"><input class="form-check-input filter-check" type="checkbox" value="batik" id="typeBatik"><label class="form-check-label" for="typeBatik">Batik</label></div>
+                    <div class="form-check"><input class="form-check-input filter-check" type="checkbox" value="polos" id="typePolos"><label class="form-check-label" for="typePolos">Polos (Solid)</label></div>
+                </div>
+                <div class="filter-group">
+                    <span class="filter-title">Sleeve</span>
+                    <div class="form-check"><input class="form-check-input filter-check" type="checkbox" value="short" id="sleeveShort"><label class="form-check-label" for="sleeveShort">Short Sleeve</label></div>
+                    <div class="form-check"><input class="form-check-input filter-check" type="checkbox" value="long" id="sleeveLong"><label class="form-check-label" for="sleeveLong">Long Sleeve</label></div>
+                </div>
+                <button class="btn btn-dark w-100 rounded-0 mt-3 btn-sm text-uppercase ls-2" onclick="resetFilters()">Reset</button>
+            </div>
+
+            <div class="col-md-9 col-lg-10 ps-md-5">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <span class="small text-muted" id="productCount">Showing Products</span>
+                    <select class="form-select w-auto border-0 bg-transparent text-end">
+                        <option>Sort by: Featured</option>
+                        <option>Price: Low to High</option>
+                    </select>
+                </div>
+
+                <div class="row g-4" id="productGrid">
+                    
+                    <div class="col-md-4 col-lg-3 product-item" data-category="man" data-type="polos" data-sleeve="short">
+                        <div class="product-card">
+                            <div class="product-img-wrap">
+                                <img src="WhatsApp Image 2025-12-17 at 01.34.06.jpeg" class="product-img">
+                                <div class="product-actions">
+                                    <a href="product.html?prod=Kemeja+Polos+Maroon&price=149000&img=WhatsApp%20Image%202025-12-17%20at%2001.34.06.jpeg" class="btn-action btn-action-main text-decoration-none d-flex align-items-center justify-content-center">View Detail</a>
+                                    <button onclick="toWA('Kemeja Maroon')" class="btn-action"><i class="bi bi-whatsapp"></i></button>
+                                    <button onclick="toShopee()" class="btn-action"><i class="bi bi-bag"></i></button>
+                                    <button onclick="toIG()" class="btn-action"><i class="bi bi-instagram"></i></button>
+                                </div>
+                            </div>
+                            <div class="text-center mt-3">
+                                <h5 class="fs-6 font-serif mb-1">Kemeja Polos Maroon</h5>
+                                <p class="small text-muted">IDR 149.000</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-lg-3 product-item" data-category="man" data-type="polos" data-sleeve="short">
+                        <div class="product-card">
+                            <div class="product-img-wrap">
+                                <img src="pendek-hitam.png" class="product-img">
+                                <div class="product-actions">
+                                    <a href="product.html?prod=Kemeja+Polos+Hitam&price=149000&img=pendek-hitam.png" class="btn-action btn-action-main text-decoration-none d-flex align-items-center justify-content-center">View Detail</a>
+                                    <button onclick="toWA('Kemeja Polos Hitam')" class="btn-action"><i class="bi bi-whatsapp"></i></button>
+                                    <button onclick="toShopee()" class="btn-action"><i class="bi bi-bag"></i></button>
+                                    <button onclick="toIG()" class="btn-action"><i class="bi bi-instagram"></i></button>
+                                </div>
+                            </div>
+                            <div class="text-center mt-3">
+                                <h5 class="fs-6 font-serif mb-1">Kemeja Polos Hitam</h5>
+                                <p class="small text-muted">IDR 149.000</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-lg-3 product-item" data-category="man" data-type="polos" data-sleeve="short">
+                        <div class="product-card">
+                            <div class="product-img-wrap">
+                                <img src="pendek-putih.png" class="product-img">
+                                <div class="product-actions">
+                                    <a href="product.html?prod=Kemeja+Polos+Putih&price=149000&img=pendek-putih.png" class="btn-action btn-action-main text-decoration-none d-flex align-items-center justify-content-center">View Detail</a>
+                                    <button onclick="toWA('Kemeja Polos Putih')" class="btn-action"><i class="bi bi-whatsapp"></i></button>
+                                    <button onclick="toShopee()" class="btn-action"><i class="bi bi-bag"></i></button>
+                                    <button onclick="toIG()" class="btn-action"><i class="bi bi-instagram"></i></button>
+                                </div>
+                            </div>
+                            <div class="text-center mt-3">
+                                <h5 class="fs-6 font-serif mb-1">Kemeja Polos Putih</h5>
+                                <p class="small text-muted">IDR 149.000</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-lg-3 product-item" data-category="man" data-type="polos" data-sleeve="short">
+                        <div class="product-card">
+                            <div class="product-img-wrap">
+                                <img src="pendek-babyblue.png" class="product-img">
+                                <div class="product-actions">
+                                    <a href="product.html?prod=Kemeja+Polos+Baby+Blue&price=149000&img=pendek-babyblue.png" class="btn-action btn-action-main text-decoration-none d-flex align-items-center justify-content-center">View Detail</a>
+                                    <button onclick="toWA('Kemeja Polos Baby Blue')" class="btn-action"><i class="bi bi-whatsapp"></i></button>
+                                    <button onclick="toShopee()" class="btn-action"><i class="bi bi-bag"></i></button>
+                                    <button onclick="toIG()" class="btn-action"><i class="bi bi-instagram"></i></button>
+                                </div>
+                            </div>
+                            <div class="text-center mt-3">
+                                <h5 class="fs-6 font-serif mb-1">Kemeja Polos Baby Blue</h5>
+                                <p class="small text-muted">IDR 149.000</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-lg-3 product-item" data-category="man" data-type="polos" data-sleeve="long">
+                        <div class="product-card">
+                            <div class="product-img-wrap">
+                                <img src="panjang-cream.png" class="product-img">
+                                <div class="product-actions">
+                                    <a href="product.html?prod=Kemeja+Cream+Long&price=159000&img=panjang-cream.png" class="btn-action btn-action-main text-decoration-none d-flex align-items-center justify-content-center">View Detail</a>
+                                    <button onclick="toWA('Kemeja Cream Long')" class="btn-action"><i class="bi bi-whatsapp"></i></button>
+                                    <button onclick="toShopee()" class="btn-action"><i class="bi bi-bag"></i></button>
+                                    <button onclick="toIG()" class="btn-action"><i class="bi bi-instagram"></i></button>
+                                </div>
+                            </div>
+                            <div class="text-center mt-3">
+                                <h5 class="fs-6 font-serif mb-1">Kemeja Cream Long</h5>
+                                <p class="small text-muted">IDR 159.000</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-lg-3 product-item" data-category="man" data-type="polos" data-sleeve="long">
+                        <div class="product-card">
+                            <div class="product-img-wrap">
+                                <img src="panjang-ginger.png" class="product-img">
+                                <div class="product-actions">
+                                    <a href="product.html?prod=Kemeja+Ginger+Long&price=159000&img=panjang-ginger.png" class="btn-action btn-action-main text-decoration-none d-flex align-items-center justify-content-center">View Detail</a>
+                                    <button onclick="toWA('Kemeja Ginger Long')" class="btn-action"><i class="bi bi-whatsapp"></i></button>
+                                    <button onclick="toShopee()" class="btn-action"><i class="bi bi-bag"></i></button>
+                                    <button onclick="toIG()" class="btn-action"><i class="bi bi-instagram"></i></button>
+                                </div>
+                            </div>
+                            <div class="text-center mt-3">
+                                <h5 class="fs-6 font-serif mb-1">Kemeja Ginger Long</h5>
+                                <p class="small text-muted">IDR 159.000</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-lg-3 product-item" data-category="man" data-type="polos" data-sleeve="long">
+                        <div class="product-card">
+                            <div class="product-img-wrap">
+                                <img src="panjang-maroon.png" class="product-img">
+                                <div class="product-actions">
+                                    <a href="product.html?prod=Kemeja+Maroon+Long&price=159000&img=panjang-maroon.png" class="btn-action btn-action-main text-decoration-none d-flex align-items-center justify-content-center">View Detail</a>
+                                    <button onclick="toWA('Kemeja Maroon Long')" class="btn-action"><i class="bi bi-whatsapp"></i></button>
+                                    <button onclick="toShopee()" class="btn-action"><i class="bi bi-bag"></i></button>
+                                    <button onclick="toIG()" class="btn-action"><i class="bi bi-instagram"></i></button>
+                                </div>
+                            </div>
+                            <div class="text-center mt-3">
+                                <h5 class="fs-6 font-serif mb-1">Kemeja Maroon Long</h5>
+                                <p class="small text-muted">IDR 159.000</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-lg-3 product-item" data-category="man" data-type="polos" data-sleeve="long">
+                        <div class="product-card">
+                            <div class="product-img-wrap">
+                                <img src="panjang-pink.png" class="product-img">
+                                <div class="product-actions">
+                                    <a href="product.html?prod=Kemeja+Pink+Long&price=159000&img=panjang-pink.png" class="btn-action btn-action-main text-decoration-none d-flex align-items-center justify-content-center">View Detail</a>
+                                    <button onclick="toWA('Kemeja Pink Long')" class="btn-action"><i class="bi bi-whatsapp"></i></button>
+                                    <button onclick="toShopee()" class="btn-action"><i class="bi bi-bag"></i></button>
+                                    <button onclick="toIG()" class="btn-action"><i class="bi bi-instagram"></i></button>
+                                </div>
+                            </div>
+                            <div class="text-center mt-3">
+                                <h5 class="fs-6 font-serif mb-1">Kemeja Pink Long</h5>
+                                <p class="small text-muted">IDR 159.000</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-lg-3 product-item" data-category="man" data-type="batik" data-sleeve="long">
+                        <div class="product-card">
+                            <div class="product-img-wrap">
+                                <img src="batikpjg1.png" class="product-img">
+                                <div class="product-actions">
+                                    <a href="product.html?prod=Batik+Gumilar&price=149000&img=batikpjg1.png" class="btn-action btn-action-main text-decoration-none d-flex align-items-center justify-content-center">View Detail</a>
+                                    <button onclick="toWA('Batik Gumilar')" class="btn-action"><i class="bi bi-whatsapp"></i></button>
+                                    <button onclick="toShopee()" class="btn-action"><i class="bi bi-bag"></i></button>
+                                    <button onclick="toIG()" class="btn-action"><i class="bi bi-instagram"></i></button>
+                                </div>
+                            </div>
+                            <div class="text-center mt-3">
+                                <h5 class="fs-6 font-serif mb-1">Batik Gumilar</h5>
+                                <p class="small text-muted">IDR 149.000</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-lg-3 product-item" data-category="man" data-type="batik" data-sleeve="long">
+                        <div class="product-card">
+                            <div class="product-img-wrap">
+                                <img src="batikpjg2.png" class="product-img">
+                                <div class="product-actions">
+                                    <a href="product.html?prod=Batik+Bengawan+Maroon&price=149000&img=batikpjg2.png" class="btn-action btn-action-main text-decoration-none d-flex align-items-center justify-content-center">View Detail</a>
+                                    <button onclick="toWA('Batik Bengawan Maroon')" class="btn-action"><i class="bi bi-whatsapp"></i></button>
+                                    <button onclick="toShopee()" class="btn-action"><i class="bi bi-bag"></i></button>
+                                    <button onclick="toIG()" class="btn-action"><i class="bi bi-instagram"></i></button>
+                                </div>
+                            </div>
+                            <div class="text-center mt-3">
+                                <h5 class="fs-6 font-serif mb-1">Batik Bengawan Maroon</h5>
+                                <p class="small text-muted">IDR 149.000</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-lg-3 product-item" data-category="man" data-type="batik" data-sleeve="long">
+                        <div class="product-card">
+                            <div class="product-img-wrap">
+                                <img src="batikpjg3.png" class="product-img">
+                                <div class="product-actions">
+                                    <a href="product.html?prod=Batik+Cucak+Rowo&price=149000&img=batikpjg3.png" class="btn-action btn-action-main text-decoration-none d-flex align-items-center justify-content-center">View Detail</a>
+                                    <button onclick="toWA('Batik Cucak Rowo')" class="btn-action"><i class="bi bi-whatsapp"></i></button>
+                                    <button onclick="toShopee()" class="btn-action"><i class="bi bi-bag"></i></button>
+                                    <button onclick="toIG()" class="btn-action"><i class="bi bi-instagram"></i></button>
+                                </div>
+                            </div>
+                            <div class="text-center mt-3">
+                                <h5 class="fs-6 font-serif mb-1">Batik Cucak Rowo</h5>
+                                <p class="small text-muted">IDR 149.000</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-lg-3 product-item" data-category="man" data-type="batik" data-sleeve="short">
+                        <div class="product-card">
+                            <div class="product-img-wrap">
+                                <img src="batikpdk1.png" class="product-img">
+                                <div class="product-actions">
+                                    <a href="product.html?prod=Batik+Prabu&price=149000&img=batikpdk1.png" class="btn-action btn-action-main text-decoration-none d-flex align-items-center justify-content-center">View Detail</a>
+                                    <button onclick="toWA('Batik Prabu')" class="btn-action"><i class="bi bi-whatsapp"></i></button>
+                                    <button onclick="toShopee()" class="btn-action"><i class="bi bi-bag"></i></button>
+                                    <button onclick="toIG()" class="btn-action"><i class="bi bi-instagram"></i></button>
+                                </div>
+                            </div>
+                            <div class="text-center mt-3">
+                                <h5 class="fs-6 font-serif mb-1">Batik Prabu</h5>
+                                <p class="small text-muted">IDR 149.000</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-lg-3 product-item" data-category="man" data-type="batik" data-sleeve="short">
+                        <div class="product-card">
+                            <div class="product-img-wrap">
+                                <img src="batikpdk2.png" class="product-img">
+                                <div class="product-actions">
+                                    <a href="product.html?prod=Batik+Sage&price=159000&img=batikpdk2.png" class="btn-action btn-action-main text-decoration-none d-flex align-items-center justify-content-center">View Detail</a>
+                                    <button onclick="toWA('Batik Sage')" class="btn-action"><i class="bi bi-whatsapp"></i></button>
+                                    <button onclick="toShopee()" class="btn-action"><i class="bi bi-bag"></i></button>
+                                    <button onclick="toIG()" class="btn-action"><i class="bi bi-instagram"></i></button>
+                                </div>
+                            </div>
+                            <div class="text-center mt-3">
+                                <h5 class="fs-6 font-serif mb-1">Batik Sage</h5>
+                                <p class="small text-muted">IDR 159.000</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-lg-3 product-item" data-category="man" data-type="batik" data-sleeve="short">
+                        <div class="product-card">
+                            <div class="product-img-wrap">
+                                <img src="batikpdk3.png" class="product-img">
+                                <div class="product-actions">
+                                    <a href="product.html?prod=Batik+Merpati&price=159000&img=batikpdk3.png" class="btn-action btn-action-main text-decoration-none d-flex align-items-center justify-content-center">View Detail</a>
+                                    <button onclick="toWA('Batik Merpati')" class="btn-action"><i class="bi bi-whatsapp"></i></button>
+                                    <button onclick="toShopee()" class="btn-action"><i class="bi bi-bag"></i></button>
+                                    <button onclick="toIG()" class="btn-action"><i class="bi bi-instagram"></i></button>
+                                </div>
+                            </div>
+                            <div class="text-center mt-3">
+                                <h5 class="fs-6 font-serif mb-1">Batik Merpati</h5>
+                                <p class="small text-muted">IDR 159.000</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-lg-3 product-item" data-category="woman" data-type="batik" data-sleeve="long">
+                        <div class="product-card">
+                            <div class="product-img-wrap">
+                                <img src="pjg1.jpeg" class="product-img">
+                                <div class="product-actions">
+                                    <a href="product.html?prod=Batik+Seruni&price=169000&img=pjg1.jpeg" class="btn-action btn-action-main text-decoration-none d-flex align-items-center justify-content-center">View Detail</a>
+                                    <button onclick="toWA('Batik Seruni')" class="btn-action"><i class="bi bi-whatsapp"></i></button>
+                                    <button onclick="toShopee()" class="btn-action"><i class="bi bi-bag"></i></button>
+                                    <button onclick="toIG()" class="btn-action"><i class="bi bi-instagram"></i></button>
+                                </div>
+                            </div>
+                            <div class="text-center mt-3">
+                                <h5 class="fs-6 font-serif mb-1">Batik Seruni</h5>
+                                <p class="small text-muted">IDR 169.000</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-lg-3 product-item" data-category="woman" data-type="batik" data-sleeve="long">
+                        <div class="product-card">
+                            <div class="product-img-wrap">
+                                <img src="pjg2.jpeg" class="product-img">
+                                <div class="product-actions">
+                                    <a href="product.html?prod=Batik+Merak+Hitam&price=159000&img=pjg2.jpeg" class="btn-action btn-action-main text-decoration-none d-flex align-items-center justify-content-center">View Detail</a>
+                                    <button onclick="toWA('Batik Merak Hitam')" class="btn-action"><i class="bi bi-whatsapp"></i></button>
+                                    <button onclick="toShopee()" class="btn-action"><i class="bi bi-bag"></i></button>
+                                    <button onclick="toIG()" class="btn-action"><i class="bi bi-instagram"></i></button>
+                                </div>
+                            </div>
+                            <div class="text-center mt-3">
+                                <h5 class="fs-6 font-serif mb-1">Batik Merak Hitam</h5>
+                                <p class="small text-muted">IDR 159.000</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-lg-3 product-item" data-category="woman" data-type="batik" data-sleeve="long">
+                        <div class="product-card">
+                            <div class="product-img-wrap">
+                                <img src="pjg3.jpeg" class="product-img">
+                                <div class="product-actions">
+                                    <a href="product.html?prod=Batik+Merak+Khaky&price=159000&img=pjg3.jpeg" class="btn-action btn-action-main text-decoration-none d-flex align-items-center justify-content-center">View Detail</a>
+                                    <button onclick="toWA('Batik Merak Khaky')" class="btn-action"><i class="bi bi-whatsapp"></i></button>
+                                    <button onclick="toShopee()" class="btn-action"><i class="bi bi-bag"></i></button>
+                                    <button onclick="toIG()" class="btn-action"><i class="bi bi-instagram"></i></button>
+                                </div>
+                            </div>
+                            <div class="text-center mt-3">
+                                <h5 class="fs-6 font-serif mb-1">Batik Merak Khaky</h5>
+                                <p class="small text-muted">IDR 159.000</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-lg-3 product-item" data-category="woman" data-type="batik" data-sleeve="long">
+                        <div class="product-card">
+                            <div class="product-img-wrap">
+                                <img src="pjg4.jpeg" class="product-img">
+                                <div class="product-actions">
+                                    <a href="product.html?prod=Batik+Janoko+Merah&price=179000&img=pjg4.jpeg" class="btn-action btn-action-main text-decoration-none d-flex align-items-center justify-content-center">View Detail</a>
+                                    <button onclick="toWA('Batik Janoko Merah')" class="btn-action"><i class="bi bi-whatsapp"></i></button>
+                                    <button onclick="toShopee()" class="btn-action"><i class="bi bi-bag"></i></button>
+                                    <button onclick="toIG()" class="btn-action"><i class="bi bi-instagram"></i></button>
+                                </div>
+                            </div>
+                            <div class="text-center mt-3">
+                                <h5 class="fs-6 font-serif mb-1">Batik Janoko Merah</h5>
+                                <p class="small text-muted">IDR 179.000</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-lg-3 product-item" data-category="woman" data-type="batik" data-sleeve="short">
+                        <div class="product-card">
+                            <div class="product-img-wrap">
+                                <img src="rok1.png" class="product-img">
+                                <div class="product-actions">
+                                    <a href="product.html?prod=Rok+Lilit+Mega+Merah&price=129000&img=rok1.png" class="btn-action btn-action-main text-decoration-none d-flex align-items-center justify-content-center">View Detail</a>
+                                    <button onclick="toWA('Rok Lilit Mega Merah')" class="btn-action"><i class="bi bi-whatsapp"></i></button>
+                                    <button onclick="toShopee()" class="btn-action"><i class="bi bi-bag"></i></button>
+                                    <button onclick="toIG()" class="btn-action"><i class="bi bi-instagram"></i></button>
+                                </div>
+                            </div>
+                            <div class="text-center mt-3">
+                                <h5 class="fs-6 font-serif mb-1">Rok Lilit Mega Merah</h5>
+                                <p class="small text-muted">IDR 129.000</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-lg-3 product-item" data-category="woman" data-type="batik" data-sleeve="long">
+                        <div class="product-card">
+                            <div class="product-img-wrap">
+                                <img src="rok2.png" class="product-img">
+                                <div class="product-actions">
+                                    <a href="product.html?prod=Rok+Lilit+Mangunjiwo+Biru&price=99000&img=rok2.png" class="btn-action btn-action-main text-decoration-none d-flex align-items-center justify-content-center">View Detail</a>
+                                    <button onclick="toWA('Rok Lilit Mangunjiwo Biru')" class="btn-action"><i class="bi bi-whatsapp"></i></button>
+                                    <button onclick="toShopee()" class="btn-action"><i class="bi bi-bag"></i></button>
+                                    <button onclick="toIG()" class="btn-action"><i class="bi bi-instagram"></i></button>
+                                </div>
+                            </div>
+                            <div class="text-center mt-3">
+                                <h5 class="fs-6 font-serif mb-1">Rok Lilit Mangunjiwo Biru</h5>
+                                <p class="small text-muted">IDR 99.000</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-lg-3 product-item" data-category="couple" data-type="batik" data-sleeve="long">
+                        <div class="product-card">
+                            <div class="product-img-wrap">
+                                <img src="couple1.jpeg" class="product-img">
+                                <div class="product-actions">
+                                    <a href="product.html?prod=Sarimbit+Bengawan+Maroon&price=269000&img=couple1.jpeg" class="btn-action btn-action-main text-decoration-none d-flex align-items-center justify-content-center">View Detail</a>
+                                    <button onclick="toWA('Sarimbit Bengawan Maroon')" class="btn-action"><i class="bi bi-whatsapp"></i></button>
+                                    <button onclick="toShopee()" class="btn-action"><i class="bi bi-bag"></i></button>
+                                    <button onclick="toIG()" class="btn-action"><i class="bi bi-instagram"></i></button>
+                                </div>
+                            </div>
+                            <div class="text-center mt-3">
+                                <h5 class="fs-6 font-serif mb-1">Sarimbit Bengawan Maroon</h5>
+                                <p class="small text-muted">IDR 269.000</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-lg-3 product-item" data-category="couple" data-type="batik" data-sleeve="long">
+                        <div class="product-card">
+                            <div class="product-img-wrap">
+                                <img src="couple2.jpeg" class="product-img">
+                                <div class="product-actions">
+                                    <a href="product.html?prod=Sarimbit+Gumilar&price=279000&img=couple2.jpeg" class="btn-action btn-action-main text-decoration-none d-flex align-items-center justify-content-center">View Detail</a>
+                                    <button onclick="toWA('Sarimbit Gumilar')" class="btn-action"><i class="bi bi-whatsapp"></i></button>
+                                    <button onclick="toShopee()" class="btn-action"><i class="bi bi-bag"></i></button>
+                                    <button onclick="toIG()" class="btn-action"><i class="bi bi-instagram"></i></button>
+                                </div>
+                            </div>
+                            <div class="text-center mt-3">
+                                <h5 class="fs-6 font-serif mb-1">Sarimbit Gumilar</h5>
+                                <p class="small text-muted">IDR 279.000</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="cartModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content modal-content-mercie">
+                <div class="modal-header modal-header-mercie">
+                    <h5 class="modal-title fw-bold fs-6">Produk Ditambahkan ke Keranjang</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body modal-body-mercie">
+                    <div class="d-flex gap-4 mb-4">
+                        <img id="modalCartImg" src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=150&q=80" style="width: 100px; height: 120px; object-fit: cover; border-radius: 8px;">
+                        <div class="flex-grow-1">
+                            <h4 class="font-serif mb-2" id="modalCartName">Nama Produk</h4>
+                            <p class="text-muted small mb-2">Ukuran: All Size</p>
+                            <h5 class="fw-bold mb-3" id="modalCartPrice">Rp 0</h5>
+                            <p class="small text-success"><i class="bi bi-check-circle-fill"></i> Stok Tersedia</p>
+                        </div>
+                        <div class="d-flex flex-column gap-2 justify-content-center">
+                            <button class="btn-checkout-now">Beli Sekarang</button>
+                            <button class="btn-view-cart" data-bs-dismiss="modal">Lanjut Belanja</button>
+                        </div>
+                    </div>
+                    <div class="bg-light p-3 rounded-3 mt-4">
+                        <p class="small fw-bold text-uppercase text-muted mb-3 ls-2">Paling Laris Minggu Ini</p>
+                        <div class="row g-2">
+                            <div class="col-md-4">
+                                <div class="cart-recommendation-card d-flex align-items-center gap-2 bg-white">
+                                    <img src="couple2.jpeg" style="width: 40px; height: 40px; object-fit: cover; border-radius: 4px;">
+                                    <div>
+                                        <p class="m-0 small fw-bold text-truncate" style="max-width: 100px;">Couple Set</p>
+                                        <p class="m-0 x-small text-muted" style="font-size: 10px;">Rp 265rb</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

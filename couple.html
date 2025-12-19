@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Couple Lab - Sandhang Comal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-light">
+
+    <nav class="navbar navbar-light bg-white shadow-sm mb-4">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary-custom" href="index.html">← Kembali ke Beranda</a>
+        </div>
+    </nav>
+
+    <div class="container mb-5">
+        <div class="text-center mb-5">
+            <h2 class="font-serif display-5">The Couple Lab 🧪</h2>
+            <p class="text-muted">Pilih warna Kemeja Pria, kami carikan Rok Lilit yang paling pas.</p>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card border-0 shadow-sm p-3">
+                    <h5 class="mb-3">1. Pilih Atasan Pria (Kemeja)</h5>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-outline-dark btn-shirt text-start" onclick="filterRok('sage')">
+                            🌿 Kemeja Sage Green
+                        </button>
+                        <button class="btn btn-outline-dark btn-shirt text-start" onclick="filterRok('terracotta')">
+                            🧱 Kemeja Terracotta (Bata)
+                        </button>
+                        <button class="btn btn-outline-dark btn-shirt text-start" onclick="filterRok('navy')">
+                            🌊 Kemeja Navy Blue
+                        </button>
+                        <button class="btn btn-outline-dark btn-shirt text-start" onclick="filterRok('black')">
+                            🌑 Kemeja Hitam Polos
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <h5 class="mb-3">2. Rekomendasi Rok Lilit Pasangan</h5>
+                
+                <div id="empty-state" class="alert alert-info text-center">
+                    Silakan pilih warna kemeja di sebelah kiri dulu ya!
+                </div>
+
+                <div class="row g-3" id="catalog-rok">
+                    <div class="col-md-6 rok-item" data-tags="sage black">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body">
+                                <span class="badge bg-success mb-2">Best Match</span>
+                                <h5>Rok Lilit Motif Daun</h5>
+                                <p class="text-muted small">Warna dasar hijau lembut.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold">Rp 85.000</span>
+                                    <a href="#" onclick="pesanWA('Rok Lilit Daun')" class="btn btn-sm btn-primary-custom">Pesan</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 rok-item" data-tags="terracotta black">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body">
+                                <span class="badge bg-warning text-dark mb-2">Warm Tone</span>
+                                <h5>Rok Lilit Parang Kencana</h5>
+                                <p class="text-muted small">Warna coklat bata klasik.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold">Rp 95.000</span>
+                                    <a href="#" onclick="pesanWA('Rok Lilit Parang')" class="btn btn-sm btn-primary-custom">Pesan</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 rok-item" data-tags="navy black">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body">
+                                <span class="badge bg-primary mb-2">Cool Tone</span>
+                                <h5>Rok Lilit Megamendung</h5>
+                                <p class="text-muted small">Motif awan biru cerah.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold">Rp 90.000</span>
+                                    <a href="#" onclick="pesanWA('Rok Lilit Megamendung')" class="btn btn-sm btn-primary-custom">Pesan</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
