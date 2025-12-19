@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesanan Berhasil - SANDHANG COMAL</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        body { background-color: #f8f9fa; font-family: 'Plus Jakarta Sans', sans-serif; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+        .success-card { background: white; padding: 50px 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; max-width: 500px; width: 100%; border: 1px solid #eee; }
+        .icon-box { width: 80px; height: 80px; background: #e8f5e9; color: #2e7d32; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px; margin: 0 auto 25px; }
+        .order-id { font-family: monospace; font-size: 16px; background: #f0f0f0; padding: 5px 10px; border-radius: 4px; letter-spacing: 2px; }
+    </style>
+</head>
+<body>
+
+    <div class="success-card">
+        <div class="icon-box">
+            <i class="bi bi-check-lg"></i>
+        </div>
+        <h2 class="fw-bold mb-3">Pesanan Diterima!</h2>
+        <p class="text-muted mb-4">Terima kasih <strong id="userName">Kak</strong>, pembayaran Anda telah berhasil diverifikasi.</p>
+        
+        <div class="border-top border-bottom py-3 my-4">
+            <div class="d-flex justify-content-between mb-2">
+                <span class="text-muted small">No. Pesanan</span>
+                <span class="order-id" id="orderID">SC-88219</span>
+            </div>
+            <div class="d-flex justify-content-between">
+                <span class="text-muted small">Total Bayar</span>
+                <span class="fw-bold" id="totalPaid">Rp 0</span>
+            </div>
+        </div>
+
+        <p class="small text-muted mb-4">Resi pengiriman akan kami kirimkan melalui WhatsApp / Email dalam waktu 1x24 jam.</p>
+
+        <a href="index.html" class="btn btn-dark w-100 py-3 rounded-pill fw-bold">Kembali ke Beranda</a>
+        <a href="catalog.html" class="btn btn-link text-muted mt-2 text-decoration-none small">Belanja Lagi</a>
+    </div>
+
+    <script>
+        // Ambil data dari URL
+        const params = new URLSearchParams(window.location.search);
+        document.getElementById('userName').innerText = params.get('name') || 'Kak';
+        document.getElementById('totalPaid').innerText = params.get('total') || '-';
+        document.getElementById('orderID').innerText = "SC-" + Math.floor(Math.random() * 1000000);
+    </script>
+</body>
+</html>

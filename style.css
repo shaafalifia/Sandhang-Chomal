@@ -1,0 +1,261 @@
+/* --- 1. SETUP & TYPOGRAPHY --- */
+:root {
+    --bg-color: #ffffff;
+    --text-main: #111111;
+    --text-muted: #757575;
+    --accent: #6D4C41; /* Muted Brown - Lebih elegan */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-main);
+    background-color: var(--bg-color);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5 { font-family: var(--font-heading); font-weight: 400; letter-spacing: -0.02em; }
+.ls-2 { letter-spacing: 2px; } /* Letter Spacing lebar ala Mercie */
+
+/* --- 2. NAVBAR (Editorial Style) --- */
+.navbar {
+    padding: 25px 40px;
+    background: transparent;
+    transition: all 0.4s ease;
+}
+.navbar.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    border-bottom: 1px solid #f0f0f0;
+    padding: 15px 40px;
+}
+.nav-link {
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    color: var(--text-main) !important;
+    margin: 0 15px;
+    position: relative;
+}
+.nav-link::after {
+    content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 1px;
+    background: var(--text-main); transition: 0.3s;
+}
+.nav-link:hover::after { width: 100%; }
+
+/* --- 3. HERO SECTION (Full Height) --- */
+.hero-wrapper {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.hero-video {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    object-fit: cover; z-index: -1;
+}
+.hero-overlay {
+    background: rgba(0,0,0,0.2); /* Gelap dikit biar teks baca */
+    position: absolute; inset: 0;
+}
+.btn-editorial {
+    background: transparent;
+    color: white;
+    border: 1px solid white;
+    padding: 15px 45px;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 2px;
+    border-radius: 0; /* KOTAK (Sharp) */
+    transition: 0.3s;
+}
+.btn-editorial:hover {
+    background: white;
+    color: black;
+}
+
+/* --- 4. MARQUEE (Running Text) --- */
+.marquee {
+    background: var(--text-main); color: white;
+    padding: 12px 0; overflow: hidden; white-space: nowrap;
+}
+.marquee-content {
+    display: inline-block; animation: scroll 20s linear infinite;
+    font-size: 12px; text-transform: uppercase; letter-spacing: 2px;
+}
+@keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+/* --- 5. CATEGORY GRID (Visual Flow) --- */
+.cat-card {
+    position: relative; overflow: hidden; height: 500px; cursor: pointer;
+}
+.cat-img {
+    width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease;
+}
+.cat-card:hover .cat-img { transform: scale(1.05); }
+.cat-overlay {
+    position: absolute; inset: 0; background: rgba(0,0,0,0.1);
+    display: flex; align-items: flex-end; padding: 30px;
+    transition: 0.3s;
+}
+.cat-card:hover .cat-overlay { background: rgba(0,0,0,0.3); }
+
+/* --- 6. PRODUCT CARD (Clean & Sharp) --- */
+.product-card {
+    border: none; background: transparent; margin-bottom: 40px;
+}
+.product-img-wrap {
+    position: relative; aspect-ratio: 3/4; overflow: hidden; background: #f4f4f4;
+}
+.product-img {
+    width: 100%; height: 100%; object-fit: cover; transition: opacity 0.3s;
+}
+/* Hover Effect: Muncul tombol Action */
+.product-actions {
+    position: absolute; bottom: 0; left: 0; width: 100%;
+    background: rgba(255,255,255,0.95);
+    padding: 15px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    display: flex; gap: 10px; justify-content: center;
+}
+.product-card:hover .product-actions { transform: translateY(0); }
+
+.btn-action {
+    border: 1px solid #eee; background: white; width: 40px; height: 40px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 0; /* KOTAK */
+    transition: 0.2s; color: var(--text-main);
+}
+.btn-action:hover {
+    background: var(--text-main); color: white; border-color: var(--text-main);
+}
+.btn-action-main {
+    flex-grow: 1; text-transform: uppercase; font-size: 10px; letter-spacing: 1px;
+    font-weight: 600;
+}
+
+/* --- 7. FOOTER --- */
+footer {
+    border-top: 1px solid #eaeaea; padding-top: 80px; margin-top: 80px;
+}
+.footer-title {
+    font-size: 11px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; font-weight: 700;
+}
+.footer-link {
+    display: block; color: var(--text-muted); font-size: 14px; margin-bottom: 12px;
+}
+.footer-link:hover { color: var(--text-main); text-decoration: underline; }
+
+/* MODAL */
+.modal-content { border-radius: 0; border: none; } /* Modal Kotak */
+.form-control, .form-select {
+    border-radius: 0; /* Input Kotak */
+    padding: 12px; border: 1px solid #ddd; font-size: 13px;
+}
+.form-control:focus { box-shadow: none; border-color: var(--text-main); }
+/* --- COPY SEMUA CSS SEBELUMNYA, LALU TAMBAHKAN INI DI BAWAHNYA --- */
+
+/* SIDEBAR FILTER (Catalog Page) */
+.filter-sidebar {
+    border-right: 1px solid #eee;
+    padding-right: 30px;
+}
+.filter-group {
+    margin-bottom: 30px;
+}
+.filter-title {
+    font-size: 11px; text-transform: uppercase; letter-spacing: 2px;
+    font-weight: 700; margin-bottom: 15px; display: block;
+}
+.form-check-label {
+    font-size: 14px; color: #555; cursor: pointer;
+}
+.form-check-input {
+    border-radius: 0; /* Checkbox kotak */
+    border-color: #ccc;
+}
+.form-check-input:checked {
+    background-color: var(--text-main); border-color: var(--text-main);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .filter-sidebar {
+        border-right: none; border-bottom: 1px solid #eee;
+        padding-right: 0; padding-bottom: 20px; margin-bottom: 30px;
+    }
+}
+/* --- CSS TAMBAHAN --- */
+
+/* 1. HERO SLIDER */
+.carousel-item {
+    height: 100vh; /* Full Screen Slider */
+    background: #000;
+}
+.hero-bg {
+    opacity: 0.7; /* Gelapkan gambar biar teks kebaca */
+    width: 100%; height: 100%; object-fit: cover;
+}
+.carousel-indicators [data-bs-target] {
+    background-color: #fff; width: 10px; height: 10px; border-radius: 50%; margin: 0 5px;
+}
+
+/* 2. PRODUCT DETAIL PAGE (Mercie Style) */
+.btn-dark-blue {
+    background-color: #0d1b2a; /* Warna Biru Gelap Mercie */
+    color: white; border: none;
+}
+.btn-dark-blue:hover {
+    background-color: #1b263b; color: white;
+}
+.btn-check:checked + .btn-outline-dark {
+    background-color: #000; color: #fff;
+}
+.product-image-frame {
+    min-height: 500px;
+    display: flex; align-items: center; justify-content: center;
+}
+
+/* 3. NAVBAR ICONS */
+.navbar a i {
+    transition: 0.3s; color: var(--text-main);
+}
+.navbar a i:hover {
+    color: var(--accent); transform: translateY(-2px); display: inline-block;
+}
+.vr { border-left: 1px solid #ccc; height: 20px; align-self: center; }
+/* --- TAMBAHAN: MODAL ADD TO CART (Mercie Style) --- */
+.modal-content-mercie {
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+}
+.modal-header-mercie {
+    border-bottom: 1px solid #f0f0f0;
+    padding: 20px 25px;
+}
+.modal-body-mercie {
+    padding: 30px 25px;
+}
+.btn-view-cart {
+    background: #fff; border: 1px solid #ddd; color: #333;
+    border-radius: 50px; padding: 10px 25px; font-size: 13px; font-weight: 600;
+    transition: 0.3s;
+}
+.btn-view-cart:hover { border-color: #000; color: #000; }
+
+.btn-checkout-now {
+    background: #082032; color: #fff; border: none;
+    border-radius: 50px; padding: 10px 25px; font-size: 13px; font-weight: 600;
+    transition: 0.3s;
+}
+.btn-checkout-now:hover { background: #000; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+
+.cart-recommendation-card {
+    border: 1px solid #eee; border-radius: 8px; padding: 10px; transition: 0.3s;
+}
+.cart-recommendation-card:hover { border-color: #ccc; }
